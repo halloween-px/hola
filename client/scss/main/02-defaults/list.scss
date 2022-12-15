@@ -1,0 +1,26 @@
+.list {
+	position: relative;
+	display: flex;
+
+	&-item {
+		margin-right: 24px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&-icon {
+
+		.list-item {
+			padding-left: 24px;
+			position: relative;
+
+			i {
+				position: absolute;
+				left: 0;
+				top: 5px;
+			}
+		}
+	}
+}

@@ -1,0 +1,91 @@
+.footer {
+	background-color: black;
+
+	&-top {
+		padding: 64px 0;
+
+		.title-area {
+			@include font-prop(18px, 600, $light, 21.78px);
+			margin-bottom: 24px;
+
+			@media #{$xs-device} {
+				margin-bottom: 10px;
+			}
+		}
+
+		.list {
+			&-item {
+				margin-bottom: 12px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				&:hover {
+					i {
+						color: $color-theme;
+					}
+				}
+
+				a {
+					@include font-prop(14px, 400, $light);
+					position: relative;
+					margin-right: 10px;
+
+					&:after {
+						content: ',';
+						position: absolute;
+						right: -7px;
+						bottom: -1px;
+						font-size: inherit;
+						color: inherit;
+					}
+
+					&:last-child {
+						&:after {
+							display: none;
+						}
+					}
+
+					&:hover {
+						color: $color-theme;
+					}
+				}
+
+				i {
+					color: $light;
+					font-size: 16px;
+					transition: $transition;
+				}
+			}
+		}
+
+		.list-social {
+			a {
+				i {
+					font-size: 28px;
+					color: $color-theme;
+					transition: $transition;
+				}
+
+				&:hover {
+					i {
+						color: $light;
+					}
+				}
+			}
+		}
+	}
+
+	&-bottom {
+		padding: 17px 0;
+
+		a {
+			@include font-prop(14px, 300, $light);
+
+			&:hover {
+				color: $color-theme;
+			}
+		}
+	}
+}

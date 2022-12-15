@@ -1,0 +1,223 @@
+.vg-apps {
+
+	@media #{$md-device, $sm-device} {
+		padding-top: 0;
+		padding-bottom: 180px;
+	}
+
+	@media #{$xs-device} {
+		padding:$padding 0;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		min-height: 896px;
+
+		@media #{$xs-device} {
+			height: auto;
+			display: block;
+			min-height: auto;
+		}
+	}
+
+	&-item {
+		.text-area {
+			@include font-prop(34px, 400, $dark);
+			padding-right: 65px;
+		}
+
+		.app-area {
+			margin-top: 64px;
+
+			@media #{$lg-device} {
+				margin-top: 40px;
+			}
+
+			.app-store {
+				display: inline-block;
+				width: 260px;
+				height: 86.96px;
+				margin-right: 24px;
+
+				@media #{$lg-device} {
+					width: 200px;
+
+					img {
+						width: 100%;
+					}
+				}
+			}
+
+			.google-pay {
+				display: inline-block;
+				width: 293px;
+				height: 86.96px;
+
+				@media #{$lg-device} {
+					width: 226px;
+
+					img {
+						width: 100%;
+					}
+				}
+
+				@media #{$sm-device} {
+					margin-top: 24px;
+				}
+
+			}
+		}
+	}
+
+	.image-phone {
+		position: absolute;
+		right: -60px;
+		top: 0;
+		width: 858px;
+		height: 896px;
+		transition: $transition;
+
+		@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+			right: -180px;
+		}
+
+		@media #{$lg-device} {
+			width: 500px;
+			right: -35px;
+		}
+
+		@media #{$md-device, $sm-device} {
+			right: -80%;
+		}
+
+		@media #{$sm-device} {
+			right: 10px;
+			top: 542px;
+			transform: rotate(90deg);
+			transition-delay: .2s;
+			transition-duration: .7s;
+			width: 500px;
+			height: 700px;
+		}
+
+		@media #{$xs-device} {
+			display: none;
+		}
+
+		& > img {
+			@include fit(contain);
+		}
+
+		&.active {
+			transform: perspective(1000px) rotateY(-16deg) rotateX(26deg);
+			transition-delay: .8s;
+			transition-duration: .5s;
+
+			@media #{$md-device} {
+				transform: rotate(90deg);
+				transition-delay: .2s;
+				transition-duration: .7s;
+				right: 150px;
+				top: 490px;
+				width: 500px;
+				height: 700px;
+			}
+
+			@media #{$sm-device} {
+				right: 10px;
+				top: 542px;
+				transform: rotate(90deg);
+				transition-delay: .2s;
+				transition-duration: .7s;
+				width: 500px;
+				height: 700px;
+			}
+
+			.body-area {
+				@media #{$md-device, $sm-device} {
+					transform: translate(-50%, -50%) rotate(-90deg);
+				}
+
+				.logo-area {
+					transform: translateX(0);
+				}
+
+				.btn {
+					opacity: 1;
+				}
+			}
+		}
+
+		.body-area{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			overflow: hidden;
+
+			@media #{$sm-device} {
+				transform: translate(-50%, -50%) rotate(-90deg);
+			}
+
+			.logo-area {
+				margin-bottom: 24px;
+				transition: $transition;
+				transition-duration: .5s;
+				transform: translateX(-340px);
+			}
+
+			.title-area {
+				font-size: 41px;
+				color: white;
+				margin-bottom: 34px;
+				font-weight: 900;
+				line-height: 1.2;
+				text-align: center;
+				transition: $transition;
+				transition-duration: .5s;
+				width: 340px;
+
+				@media #{$md-device, $sm-device} {
+					font-size: 34px;
+				}
+
+				span:last-child {
+					display: inline-block;
+					color: transparent;
+					-webkit-background-clip: text;
+					background-clip: text;
+					background-image: linear-gradient(90deg, rgba(255,184,0,1) 25%, rgba(255,31,0,1) 100%);
+					position: relative;
+
+					&:after {
+						content: '';
+						position: absolute;
+						width: 10px;
+						height: 10px;
+						right: -14px;
+						bottom: 9px;
+						font-size: inherit;
+						background-color: rgba(255,31,0,1);
+						border-radius: 50%;
+					}
+				}
+			}
+
+			.btn {
+				opacity: 0;
+				transition: $transition;
+				transition-duration: .5s;
+				transition-delay: .4s;
+
+				@media #{$md-device, $sm-device} {
+					padding: 10px 28px;
+				}
+			}
+		}
+	}
+}

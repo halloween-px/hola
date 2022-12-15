@@ -1,0 +1,135 @@
+.btn {
+	--btn-font-size: 20px;
+	font-size: var(--btn-font-size);
+	font-weight: 400;
+	padding: 16px 36px;
+	line-height: 1;
+	border-radius: $border-radius-xl;
+	transition: $transition;
+	overflow: hidden;
+
+	@media #{$sm-device} {
+		padding: 8px 24px;
+	}
+
+	&--primary {
+		position: relative;
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		z-index: 1;
+		color: $light;
+
+		&:after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition: width .4s ease-in-out, border-radius .4s ease-in-out;
+			background-color: $color-second;
+			z-index: -1;
+		}
+
+		&:before {
+			content: '';
+			width: 0;
+			height: 100%;
+			position: absolute;
+			right: 0;
+			top: 0;
+			transition: width .4s ease-in-out, border-radius .4s ease-in-out;
+			background-color: $color-theme;
+			z-index: -1;
+		}
+
+		&:hover, &:focus {
+			box-shadow: 0 0 24px rgba($color-theme, .4);
+			background-color: transparent;
+			color: $light;
+
+			&:after {
+				left: auto;
+				right: 0;
+				width: 0;
+			}
+
+			&:before {
+				right: auto;
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+
+	&--primary {
+		position: relative;
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		z-index: 1;
+		color: $light;
+
+		&:after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition: width .4s ease-in-out, border-radius .4s ease-in-out;
+			background-color: $color-second;
+			z-index: -1;
+		}
+
+		&:before {
+			content: '';
+			width: 0;
+			height: 100%;
+			position: absolute;
+			right: 0;
+			top: 0;
+			transition: width .4s ease-in-out, border-radius .4s ease-in-out;
+			background-color: $color-theme;
+			z-index: -1;
+		}
+
+		&:hover, &:focus {
+			box-shadow: 0 0 24px rgba($color-theme, .4);
+			background-color: transparent;
+			color: $light;
+
+			&:after {
+				left: auto;
+				right: 0;
+				width: 0;
+			}
+
+			&:before {
+				right: auto;
+				left: 0;
+				width: 100%;
+			}
+		}
+
+		&-other {
+			&:after {
+				background-color: $color-theme;
+			}
+
+			&:before {
+				background-color: $color-second;
+			}
+		}
+	}
+
+	//size
+	&-lg {
+		font-size: 18px;
+	}
+
+	&-sm {
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,51 @@
+.vg-infoblock {
+	position: absolute;
+	z-index: 2;
+	margin-top: calc((-127px - (65px * 2)) / 2);
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+
+	.image-area {
+		width: 100%;
+		height: 127px;
+		position: relative;
+
+		&:hover {
+			.flag {
+				transform: translateX(-50%) rotate(360deg);
+			}
+		}
+
+		.country {
+			@include fit();
+			border-radius: $border-radius;
+		}
+
+		.flag {
+			content: '';
+			position: absolute;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			top: -50%;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: $transition;
+
+			@media #{$lg-device, $md-device, $sm-device} {
+				width: 80px;
+				height: 80px;
+				top: -30%;
+			}
+		}
+	}
+
+	.swiper {
+		padding-top: 65px;
+
+		.swiper-wrapper {
+			padding-bottom: 55px;
+		}
+	}
+}

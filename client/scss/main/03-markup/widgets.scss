@@ -1,0 +1,115 @@
+.widgets {
+  position: sticky;
+  top: 104px;
+
+  &-wrapper {
+    background-color: $bg;
+    box-shadow: $box-shadow;
+    padding: 24px;
+    border-radius: $border-radius;
+
+    h4 {
+      @include font-prop(20px, 800, rgba($dark, .9));
+
+      span {
+        color: $color-second;
+
+        &.green {
+          color: $color-theme-light;
+        }
+      }
+    }
+
+    p {
+      @include font-prop(14px, 500, rgba($dark, .8));
+    }
+
+    .list-item {
+      padding: 12px 0;
+      border-bottom: 1px solid $border-color;
+      margin-right: 0;
+
+      a {
+        display: inline-block;
+        position: relative;
+
+        img {
+          width: 40px;
+          height: 40px;
+          transition: $transition;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%) rotate(0deg);
+        }
+
+        span {
+          @include font-prop(16px, 600, $color-theme-light);
+          transition: $transition;
+          padding-left: 52px;
+        }
+      }
+
+      &.active {
+        a {
+          img {
+            left: calc(100% + 12px);
+            transform: translateY(-50%) rotate(360deg);
+          }
+
+          span {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .list-categories {
+    flex-direction: column;
+
+    .list-item {
+      a {
+        @include font-prop(16px, 400, rgba($dark, .6));
+        padding: 0 38px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 0;
+      }
+
+      span {
+        padding-left: 0;
+      }
+
+      .box {
+        position: absolute;
+        left: 8px;
+        top: 3px;
+        width: 16px;
+        height: 16px;
+
+        &-green {
+          background-color: $color-theme;
+        }
+
+        &-red {
+          background-color: $color-second;
+        }
+
+        &-light-green {
+          background-color: $color-theme-light;
+        }
+
+        &-dark-green {
+          background-color: $color-theme-dark;
+        }
+
+        &-gray {
+          background-color: rgba($color-theme-dark, .6);
+        }
+      }
+    }
+  }
+}

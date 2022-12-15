@@ -1,0 +1,40 @@
+// Configuration
+@import "./01-option/functions";
+@import "./01-option/varibles";
+@import "./01-option/mixin";
+@import "./01-option/animation";
+
+@import "./02-defaults/list";
+@import "./02-defaults/btn";
+@import "./02-defaults/form";
+
+@import "./03-markup/grid";
+@import "./03-markup/base";
+@import "./03-markup/header";
+@import "./03-markup/section";
+@import "./03-markup/select";
+@import "./03-markup/footer";
+@import "./03-markup/hamburger";
+@import "./03-markup/breadcrumbs";
+@import "./03-markup/widgets";
+@import "./03-markup/sidebar";
+@import "./03-markup/modal";
+@import "./03-markup/pagination";
+
+@import "./04-modules/sliders";
+@import "./04-modules/infoblock";
+@import "./04-modules/gta";
+@import "./04-modules/about";
+@import "./04-modules/teams";
+@import "./04-modules/reviews";
+@import "./04-modules/apps";
+@import "./04-modules/news";
+@import "./04-modules/join";
+@import "./04-modules/photogallery";
+@import "./04-modules/blog";
+@import "./04-modules/courses";
+@import "./04-modules/contacts";
+@import "./04-modules/registarion";
+
+@import "./05-plugins/swiper";
+@import "./05-plugins/fancybox";

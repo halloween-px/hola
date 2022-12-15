@@ -1,0 +1,75 @@
+.join {
+	background: url("/images/resource/join/img.jpg") center no-repeat;
+	background-size: cover;
+	position: relative;
+	z-index: 2;
+
+	@media #{$xl-device} {
+		padding: 140px 0;
+	}
+
+	&:after {
+		content: '';
+		@include fullAbsolute();
+		background: url("/images/resource/join/join_bg.png") center no-repeat;
+		background-size: cover;
+		z-index: -1;
+	}
+
+	&:before {
+		content: '';
+		@include fullAbsolute();
+		background-color: rgba($color-theme, .9);
+		z-index: -1;
+	}
+	.title-red {
+		font-size: 59px;
+		line-height: 1.36;
+
+		@media #{$lg-device} {
+			font-size: 48px;
+		}
+
+		@media #{$xs-device} {
+			font-size: 40px;
+		}
+
+		span {
+			display: inline-block;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+
+			@media #{$xs-device} {
+				margin-left: 0;
+			}
+		}
+	}
+
+	.vg-form {
+		position: relative;
+
+		input {
+			padding: 25px;
+		}
+
+		a {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			width: 74px;
+			border-radius: 50%;
+			background-color: $color-second;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			i {
+				color: $light;
+				font-weight: 300;
+				font-size: 24px;
+			}
+		}
+	}
+}

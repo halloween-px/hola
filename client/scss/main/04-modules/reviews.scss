@@ -1,0 +1,67 @@
+.vg-reviews {
+
+	canvas {
+		display: block;
+		background-color: #E9E9E9;
+		@include fullAbsolute();
+		z-index: -1;
+	}
+
+	&-item {
+		background-color: $light;
+		padding: 32px 24px;
+		border-radius: $border-radius;
+
+		.text-area {
+			@include font-prop(18px, 500, $dark);
+			margin-bottom: 20px;
+		}
+
+		.author-area {
+			display: flex;
+			align-items: center;
+			position: relative;
+
+			&:after {
+				content: '\f10e';
+				font-family: $font-awesome;
+				font-size: 32px;
+				color: rgba(#044339, .12);
+				font-weight: 900;
+				position: absolute;
+				right: 24px;
+				bottom: 10px;
+			}
+
+			.avatar {
+				display: block;
+				width: 48px;
+				height: 48px;
+				margin-right: 12px;
+
+				img {
+					@include fit();
+					border-radius: 50%;
+				}
+			}
+
+			.name {
+				@include font-prop(18px, 600, $color-theme-dark);
+			}
+
+			.stars {
+				display: flex;
+
+				i {
+					font-size: 14px;
+					margin-right: 5px;
+					color: #FFA300;
+				}
+			}
+		}
+	}
+
+	.swiper-wrapper {
+		padding-bottom: 50px;
+	}
+}

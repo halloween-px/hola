@@ -1,0 +1,8 @@
+.fancybox__container {
+	.fancybox__viewport {
+		.fancybox__html5video:focus {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+}

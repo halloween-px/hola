@@ -1,0 +1,114 @@
+.sidebar {
+	.offcanvas-header {
+		background-color: $color-theme-light;
+
+		.btn-close {
+			filter: invert(100%) sepia(2%) saturate(7415%) hue-rotate(289deg) brightness(103%) contrast(114%);
+
+			&:focus {
+				box-shadow: none;
+			}
+		}
+	}
+
+	.offcanvas-body {
+		background-color: $bg;
+		overflow: hidden;
+
+		.image-area {
+			width: 100%;
+			height: 160px;
+			position: relative;
+
+			img {
+				position: absolute;
+				left: -16px;
+				top: -16px;
+				height: 100%;
+				@include fit();
+				width: calc(100% + 32px);
+			}
+		}
+
+		.list-social {
+			justify-content: space-between;
+			width: calc(100% + 32px);
+			left: -16px;
+			top: -16px;
+			border-bottom: 1px solid $border-color;
+			box-shadow: 0 6px 13px -14px black;
+
+			.list-item {
+				margin-right: 0;
+				border-right: 1px solid #dfdfdf;
+				width: 100%;
+
+				a {
+					width: 100%;
+					height: 50px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: $bg;
+
+					&:hover {
+						i {
+							color: $color-second;
+						}
+					}
+				}
+
+				i {
+					font-size: 24px;
+					color: $color-theme-light;
+					transition: $transition;
+				}
+			}
+		}
+
+		.list-nav {
+			row-gap: 12px;
+
+			.list-item {
+				box-shadow: 0 3px 8px -8px black;
+				padding: 8px 16px;
+
+				i {
+					color: $color-theme-light;
+					top: 15px;
+					font-size: 12px;
+				}
+
+				a {
+					@include font-prop(18px, 500, $color-theme-light);
+
+					&:hover {
+						color: $color-second;
+					}
+				}
+			}
+		}
+
+		.list-info {
+			row-gap: 12px;
+
+			.list-item {
+				padding-left: 30px;
+			}
+
+			i {
+				top: 2px;
+				font-size: 20px;
+				color: $color-theme-light;
+			}
+
+			a {
+				@include font-prop(16px, 500, rgba($dark, .7));
+
+				&:hover {
+					color: $color-theme-light;
+				}
+			}
+		}
+	}
+}

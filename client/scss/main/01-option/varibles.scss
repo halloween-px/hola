@@ -1,0 +1,51 @@
+//fonts
+$font-family: 'Inter', sans-serif;
+$font-awesome: 'Font Awesome 6 Pro' !default;
+
+//colors
+$white: #ffffff;
+$black: #000000;
+$dark: #111111 !default;
+$light: $white;
+$bg: #EEEEEE;
+
+$color-text: $dark;
+$color-theme: #07D187;
+$color-second: #C32108;
+$color-theme-dark: #011C12;
+$color-theme-light: #036F47;
+
+$color-contrast-dark:      $dark !default;
+$color-contrast-light:     $light !default;
+
+$min-contrast-ratio:   5 !default;
+
+$theme-colors: (
+		'primary': $color-theme,
+		'secondary': $color-second,
+		'light': $light,
+		'dark': $dark,
+);
+
+$box-shadow: 0 0 12px -4px rgba($dark, .6);
+
+//transition
+$transition: all .3s ease-in-out;
+
+//border
+$border-color: #E9E9E9;
+$border-radius: 14px;
+$border-radius-xxl: 160px;
+$border-radius-xl: 130px;
+
+//padding
+$padding: 120px;
+$padding-sm: 80px;
+
+//responsive
+$xl-device: 'only screen and (min-width: 1399px)';
+$lg-device: 'only screen and (min-width: 992px) and (max-width: 1199.98px)';
+$md-device: 'only screen and (min-width: 768px) and (max-width: 991.98px)';
+$sm-device: 'only screen and (max-width: 767.98px)';
+$xs-device: 'only screen and (max-width: 575.98px)';
+$xxs-device: 'only screen and (max-width: 320.98px)';

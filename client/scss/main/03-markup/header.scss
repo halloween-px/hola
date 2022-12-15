@@ -1,0 +1,142 @@
+.header {
+	position: relative;
+
+	&-wrapper {
+		transition: $transition;
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 0;
+		z-index: 999;
+		height: 116px;
+
+		&.scroll {
+			animation: scrollEnd .6s ease-in-out forwards;
+		}
+
+		&.fixed {
+			position: fixed;
+			height: 85px;
+			animation: scroll .6s ease-in-out forwards;
+			background-color: rgba($color-theme-dark, .9);
+		}
+	}
+
+	@keyframes scroll {
+		0% {
+			position: absolute;
+			top: -100%;
+		}
+
+		30% {
+			position: fixed;
+			top: -100%;
+		}
+
+		100% {
+			top: 0;
+		}
+	}
+
+	@keyframes scrollEnd {
+		0% {
+			position: fixed;
+			top: 0;
+		}
+
+		100% {
+			top: -100%;
+		}
+	}
+
+	&-top {
+		display: flex;
+		align-items: center;
+		height: 100%;
+
+		@media #{$xs-device} {
+			height: 130px;
+		}
+
+
+		.nav {
+			@media #{$lg-device} {
+				justify-content: center;
+			}
+
+			.list {
+				&-item {
+					padding: 46px 0;
+ 
+					a {
+						@include font-prop(18px, 500, $light);
+						position: relative;
+						white-space: nowrap;
+
+						&:after {
+							content: '';
+							width: 0;
+							height: 2px;
+							background-color: $light;
+							position: absolute;
+							left: 0;
+							bottom: -8px;
+							transition: $transition;
+						}
+
+						&:hover {
+							&:after {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.interaction-area {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+
+			.search-area {
+				background-color: transparent;
+				border: none;
+				color: $light;
+				margin-right: 36px;
+
+				i {
+					vertical-align: middle;
+					font-size: 18px;
+					font-weight: 400;
+				}
+			}
+
+			.login-area {
+				@include font-prop(18px, 500, $light, 22px);
+				margin-right: 36px;
+
+			}
+
+			.search-area, .login-area {
+				@media #{$md-device, $sm-device} {
+					margin-right: 24px;
+				}
+			}
+		}
+	}
+}
+
+.page-registration {
+	.vg-header {
+		.interaction-area {
+			a {
+				display: none;
+			}
+		}
+
+		.search-area {
+			margin-right: 0;
+		}
+	}
+}

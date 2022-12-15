@@ -1,0 +1,68 @@
+.photogallery {
+
+	.col-auto {
+		flex: 0 0 calc(100% / 9);
+
+		@media only screen and (min-width: 1400px) and (max-width: 1600px), #{$xl-device} {
+			flex: 0 0 calc(100% / 7);
+		}
+
+		@media #{$lg-device, $md-device, $sm-device} {
+			flex: 0 0 calc(100% / 3);
+		}
+
+		&:first-child, &:last-child {
+			@media only screen and (min-width: 1400px) and (max-width: 1600px), #{$xl-device} {
+				display: none;
+			}
+		}
+	}
+	
+
+	.image-area {
+		display: block;
+		height: 220px;
+		width: 100%;
+
+		img {
+			@include fit();
+		}
+	}
+
+	.content-area {
+		background-color: $color-second;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 220px;
+		width: 100%;
+
+		i,span {
+			transition: $transition;
+		}
+
+		i {
+			font-size: 24px;
+			color: $light;
+			margin-bottom: 8px;
+		}
+
+		span {
+			@include font-prop(18px, 500, $light);
+			display: block;
+		}
+
+		&:hover {
+			i, span {
+				color: $color-theme;
+			}
+		}
+	}
+
+	.image-area, .content-area {
+		@media #{$xs-device} {
+			height: 137px;
+		}
+	}
+}

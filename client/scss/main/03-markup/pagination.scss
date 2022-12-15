@@ -1,0 +1,104 @@
+.pagination {
+	background: $light;
+	padding: 12px;
+	display: inline-flex;
+	border-radius: 50px;
+	box-shadow: $box-shadow;
+	position: relative;
+
+	li {
+		a.page-link {
+			color: $color-theme-light;
+			background-color: $light;
+			font-size: 20px;
+			text-align: center;
+			line-height: 45px;
+			height: 45px;
+			width: 45px;
+			padding: 0;
+			margin: 0 12px 0 0;
+			border: none;
+			border-radius: 0;
+			box-shadow: $box-shadow;
+			overflow: hidden;
+			position: relative;
+		}
+
+		&.active a.page-link, a.page-link:hover, &.active a.page-link:hover {
+			color: #fff;
+			border: none;
+		}
+
+		&:first-child a.page-link {
+			border-radius: 40px 0 0 40px;
+		}
+
+		&:last-child a.page-link {
+			margin-right: 0;
+			border-radius: 0 40px 40px 0;
+		}
+
+		a.page-link:before {
+			content: '';
+			background-color: $color-theme-light;
+			height: 0;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: -1;
+			transition: all 0.3s;
+		}
+
+		&.active a.page-link:before, a.page-link:hover:before, &.active a.page-link:hover:before {
+			height: 100%;
+		}
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.pagination {
+		padding: 10px;
+		margin: 0;
+		border-radius: 30px;
+		display: block;
+
+		li {
+			display: inline-block;
+			margin: 0 0 5px;
+		}
+	}
+}
+//.pagination {
+//	height: 32px;
+//
+//	.page-item {
+//		a {
+//			margin-right: 6px;
+//			display: flex;
+//			align-items: center;
+//			justify-content: center;
+//			width: 32px;
+//			height: 100%;
+//			border-radius: 50%;
+//			font-size: 12px;
+//			font-weight: bold;
+//		}
+//
+//		&:first-child, &:last-child {
+//			a {
+//				padding: 8px 18px;
+//				width: auto;
+//				border-radius: 100px;
+//			}
+//		}
+//
+//		&:first-child {
+//			margin-right: 18px;
+//		}
+//
+//		&:last-child {
+//			margin-left: 18px;
+//		}
+//	}
+//}

@@ -1,0 +1,112 @@
+.section {
+	position: relative;
+	z-index: 1;
+
+	&-padding {
+		padding: $padding 0;
+
+		@media #{$lg-device} {
+			padding: calc(#{$padding} - 24px) 0;
+		}
+
+		@media #{$md-device} {
+			padding: calc(#{$padding} - (24px * 2)) 0;
+		}
+
+		@media #{$sm-device} {
+			padding: calc(#{$padding} - (24px * 3)) 0;
+		}
+
+		&-sm {
+			padding: $padding-sm 0;
+		}
+	}
+
+	&-title {
+		display: flex;
+		margin-bottom: 64px;
+		color: $dark;
+
+		@media #{$sm-device} {
+			margin-bottom: 30px;
+		}
+
+		&-mb-xl {
+			margin-bottom: 36px;
+
+			@media #{$xs-device} {
+				margin-bottom: 24px;
+			}
+		}
+
+		&-mb-sm {
+			margin-bottom: 16px;
+		}
+
+		// titles
+		&--wrapper {
+			.title {
+				@include font-prop(60px, 900, null, 1.1);
+				margin-bottom: 24px;
+
+				@media #{$sm-device} {
+					font-size: 40px;
+				}
+
+				&-red {
+					span {
+						color: $color-second;
+					}
+
+					&-special {
+						span {
+							background-color: white;
+							display: inline-block;
+							margin-left: -15px;
+						}
+					}
+				}
+
+				&-green {
+					span {
+						color: $color-theme;
+					}
+				}
+			}
+
+			.subtitle {
+				@include font-prop(24px, 600, null);
+
+				@media #{$sm-device} {
+					font-size: 20px;
+				}
+			}
+
+			.text {
+				@include font-prop(20px, 400, null, 24.2px);
+			}
+		}
+
+		&--white {
+			color: $light;
+		}
+
+		&--center {
+			text-align: center;
+		}
+	}
+
+	&-lines-apps {
+		background: url("/images/resource/lines2.png") no-repeat 2000px 0;
+		background-size: cover;
+		transition: $transition;
+
+		&.active {
+			background-position: 0 0 ;
+			transition: $transition;
+			transition-duration: 2s;
+			animation: linesWave 10s ease-in-out infinite;
+			animation-delay: 2s;
+		}
+	}
+}

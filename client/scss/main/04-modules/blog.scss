@@ -1,0 +1,369 @@
+.blog {
+	position: relative;
+
+	&:after {
+		content: '';
+		border: 400px solid transparent;
+		border-top: 400px solid $color-theme;
+		border-right: 400px solid $color-theme;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: -1;
+	}
+
+	&:before {
+		content: '';
+		border: 250px solid transparent;
+		border-bottom: 250px solid $color-second;
+		border-left: 250px solid $color-second;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: -1;
+	}
+
+	.blog-area {
+		display: grid;
+		grid-column-gap: 24px;
+		grid-row-gap: 24px;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: repeat(1, 1fr);
+		transition: $transition;
+		overflow: hidden;
+
+		.blog-hero {
+			transition: $transition;
+			&:nth-child(1) {
+				grid-area: 1 / 1 / 2 / 2;
+				transform: translateX(-110%);
+			}
+
+			&:nth-child(2) {
+				grid-area: 1 / 2 / 2 / 3;
+				transform: translateX(110%);
+			}
+		}
+
+		.blog-other {
+			transition: $transition;
+			transform: translateX(-110%);
+			&:nth-of-type(1) {
+				grid-area: 2 / 1 / 3 / 2;
+			}
+			&:nth-of-type(2) {
+				grid-area: 3 / 1 / 4 / 2;
+			}
+			&:nth-of-type(3) {
+				grid-area: 4 / 1 / 5 / 2;
+			}
+		}
+
+		.widgets-area {
+			grid-area: 2 / 2 / 5 / 3;
+			transition: $transition;
+
+			transform: translateX(110%);
+		}
+
+		&.active {
+			.blog-hero, .blog-other, .widgets-area {
+				transform: translateX(0);
+			}
+		}
+
+		&.single {
+			.widgets-area {
+				grid-area: 1 / 2 / 5 / 3;
+			}
+		}
+	}
+
+	.author-area {
+		display: flex;
+
+		.image-area {
+			flex: 0 0 40px;
+			height: 40px;
+			border-radius: 50%;
+
+			img {
+				@include fit();
+				border-radius: 50%;
+			}
+		}
+
+		.info-area {
+			flex: 0 0 auto;
+			padding-left: 8px;
+
+			.name {
+				font-size: .875rem;
+				color: $white;
+			}
+
+			.date {
+				font-size: .75rem;
+				color: rgba(203, 213, 224, .8);
+			}
+		}
+	}
+
+	&-hero {
+
+		figure {
+			width: 100%;
+			min-height: 384px;
+			height: 100%;
+			display: flex;
+			position: relative;
+			padding: 24px;
+			z-index: 1;
+			margin-bottom: 0;
+			border-radius: $border-radius;
+
+			a {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+			}
+
+			&:after {
+				content: '';
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-color: rgba($dark, .5);
+				position: absolute;
+				z-index: -1;
+				border-radius: $border-radius;
+			}
+
+			.image-bg {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				z-index: -1;
+				border-radius: $border-radius;
+			}
+
+			figcaption {
+				margin-top: auto;
+
+				.chapter {
+					display: inline-block;
+					@include font-prop(16px, 400, $white);
+					background-color: $dark;
+					padding: 8px 24px;
+					margin-bottom: 12px;
+				}
+
+				p {
+					@include font-prop(2.25rem, 500, $white);
+					line-height: 1.25;
+					margin-bottom: 4px;
+
+					@media #{$lg-device, $md-device, $sm-device} {
+						@include font-prop(1.8rem, 500, $white);
+					}
+
+					@media #{$xs-device} {
+						@include font-prop(1.4rem, 600, $white);
+					}
+				}
+			}
+		}
+	}
+
+	&-other {
+		figure {
+			width: 100%;
+			height: 100%;
+			margin-bottom: 0;
+			position: relative;
+			border-radius: $border-radius 0 0 $border-radius;
+
+			@media #{$sm-device} {
+				height: 160px;
+				border-radius: $border-radius $border-radius 0 0;
+			}
+
+			.chapter {
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: inline-block;
+				@include font-prop(16px, 400, $white);
+				background-color: $dark;
+				padding: 8px 24px;
+				margin-bottom: 12px;
+				border-radius: $border-radius 0 0 0;
+				z-index: 1;
+			}
+
+			img {
+				@include fit();
+				position: absolute;
+				left: 0;
+				top: 0;
+				border-radius: $border-radius 0 0 $border-radius;
+
+				@media #{$sm-device} {
+					border-radius: $border-radius $border-radius 0 0;
+				}
+			}
+		}
+
+		.content-area {
+			background-color: $bg;
+			box-shadow: $box-shadow;
+			padding: 12px;
+			border-radius: 0 $border-radius $border-radius 0;
+			position: relative;
+			overflow: hidden;
+
+			@media #{$sm-device} {
+				border-radius: 0 0 $border-radius $border-radius;
+			}
+
+			&:after {
+				content: '\f061';
+				font-family: $font-awesome;
+				font-size: 280px;
+				font-weight: 500;
+				color: rgba($color-theme-light, .07);
+				position: absolute;
+				right: 10px;
+				bottom: -46px;
+				line-height: .7;
+				z-index: 1;
+			}
+
+			.title {
+				display: block;
+				@include font-prop(22px, 600, $color-theme-light);
+				margin-bottom: 12px;
+
+				@media #{$xs-device} {
+					@include font-prop(1.4rem, 600, $color-theme-light);
+				}
+
+				&.title-red {
+					color: $color-second;
+
+					&:hover {
+						color: $color-theme-light;
+					}
+				}
+
+				&:hover {
+					color: $color-second;
+				}
+			}
+
+			.text-area {
+				@include font-prop(15px, 400, $dark);
+				margin-bottom: 28px;
+
+				p {
+					margin-bottom: 10px;
+				}
+			}
+
+			.author-area {
+				.name {
+					color: rgba($dark, .8);
+				}
+
+				.date {
+					color: rgba($dark, .6);
+				}
+			}
+		}
+	}
+
+	&-show {
+		.image-area {
+			width: 100%;
+			height: 400px;
+			position: relative;
+
+			img {
+				@include fit();
+				border-radius: $border-radius;
+			}
+
+			.flag {
+				width: 130px;
+				height: 130px;
+				position: absolute;
+				top: -24px;
+				left: -24px;
+			}
+		}
+
+
+		.content-area {
+			h4 {
+				@include font-prop(22px, 800, rgba($dark, .9));
+				margin-bottom: 16px;
+			}
+
+			p {
+				@include font-prop(16px, 500, rgba($dark, .8));
+			}
+
+			ul {
+				li {
+					display: flex;
+					margin-bottom: 12px;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+
+					span {
+						@include font-prop(16px, 600, rgba($dark, .7));
+						flex: 0 0 calc(100% - 25px);
+						padding-left: 12px;
+					}
+
+					i {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: $white;
+						width: 25px;
+						height: 25px;
+						background-color: $color-theme-light;
+						border-radius: 50%;
+					}
+				}
+			}
+
+			.swiper {
+				margin-top: 24px;
+
+				.swiper-wrapper {
+					padding-bottom: 40px;
+				}
+
+				.image-area {
+					width: 100%;
+					height: 230px;
+
+					img {
+						@include fit();
+					}
+				}
+			}
+		}
+	}
+}

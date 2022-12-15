@@ -1,0 +1,13 @@
+{
+  "name": "hola",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm run dev --prefix ./client",
+    "server": "npm run dev --prefix ./server",
+    "admin": "npm run dev --prefix ./admin"
+  },
+  "author": "",
+  "license": "ISC"
+}

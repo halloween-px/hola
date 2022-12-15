@@ -1,0 +1,42 @@
+.vg-form {
+	&-control {
+		padding: 17px 30px;
+		@include font-prop(18px, 500, $dark, 22px);
+		background-color: $light;
+		border-radius: 50px;
+		border: none;
+		width: 100%;
+
+		&::placeholder {
+			@include font-prop(18px, 500, rgba($dark, .54), 22px);
+		}
+
+	}
+
+	textarea {
+		width: 100%;
+		height: 200px;
+	}
+
+	&-transparent {
+		.form-control {
+			border: none;
+			background-color: transparent;
+			border-bottom: 1px solid rgba($light, .16);
+
+			&:focus {
+				box-shadow: none;
+				border-color: darken($color-second, 20%);
+			}
+		}
+	}
+
+	&-widgets {
+		margin-top: 24px;
+
+		.vg-form-control {
+			border: 1px solid $border-color;
+			margin-bottom: 12px;
+		}
+	}
+}
