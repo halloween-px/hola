@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { SwiperSlide } from "swiper/react";
 import SwiperLayout from "../slider/Swiper";
 
@@ -19,6 +20,11 @@ const Reviews = () => {
             avatar: 'https://i.pravatar.cc/150?img=1'
         },
     ]
+    useEffect(() => {
+        if(AnimateCanvas) {
+            AnimateCanvas()
+        }
+    }, [])
     return (
         <>
             <section className="vg-reviews section section-padding">

@@ -136,6 +136,8 @@ function AnimateCanvas(){
 	new Animation().init();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-	AnimateCanvas();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+// 	setTimeout(() => {
+// 		AnimateCanvas();
+// 	}, 1000)
+// });

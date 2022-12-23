@@ -1,13 +1,15 @@
 import MainLayouts from "../../components/layouts/MainLayouts";
 import Breadcrumbs from "../../components/layouts/Breadcrumbs";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useMainContext } from "../../components/context/MainContext";
+import { useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadServices } from "../../modules/services/redux/actions";
 
 const Services = () => {
-    const {services, loadServices} = useMainContext();
+    const services = useSelector((store) => store.services.items);
+    const dispatch = useDispatch();
     useEffect(() => {
-        loadServices()
+       dispatch(loadServices())
     }, [])
     return (
         <MainLayouts>

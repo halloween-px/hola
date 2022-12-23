@@ -7,22 +7,23 @@ import Widgets from "../../components/widgets/Widgets";
 import WidgetsForm from "../../components/widgets/WidgetsForm";
 import SwiperLayout from "../../components/slider/Swiper";
 import { SwiperSlide } from "swiper/react";
+import { useSelector, useDispatch } from "react-redux";
+import { loadService, loadServices } from "../../modules/services/redux/actions";
 
 const ServicePage = ({defaultService}) => {
+    const service = useSelector((store) => store.services.item) || defaultService;
+    const services = useSelector((store) => store.services.items);
+    const dispatch = useDispatch();
     const router = useRouter();
     const serviceId = router.query.service_id;
-    const { service: contextService, loadService, services, loadServices } = useMainContext();
-    const service = contextService || defaultService;
     const numbers = [1, 2, 3, 4];
-    console.log({defaultService})
 
     useEffect(() => {
         if (!serviceId) {
             return
         }
-
-        loadService(serviceId)
-        loadServices()
+        dispatch(loadService(serviceId))
+        dispatch(loadServices())
     }, [serviceId])
 
     return (
