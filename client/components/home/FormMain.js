@@ -1,4 +1,58 @@
+import { useState } from "react";
+import { API_URL } from "../../config/url";
+
 const FormMain = () => {
+
+    // const [userName, setUserName] = useState('');
+    // const [userPhone, setUserPhonee] = useState('');
+    // const [selectGta, setSelectGta] = useState('');
+
+    const [formData, setFormData] = useState({
+        userName: '',
+        userPhone: '',
+        selectGta: '',
+    })
+
+    const getChangeInput = field => (e) => {
+        setFormData({...formData, [field]: e.target.value})
+    }
+    
+
+    // const changeUserName = (e) => {
+    //     setFormData({
+    //         ...formData,
+    //         userName: e.target.value
+    //     })
+    // }
+
+    // const changeUserPhone = getChangeInput('userPhone')
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        fetch(`${API_URL}/requests`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData)
+            // body: JSON.stringify({
+            //     userName,
+            //     userPhone,
+            //     selectGta
+            // })
+            // body: JSON.stringify({
+            //     user_name: e.target.user_name.value,
+            //     user_phone: e.target.user_phone.value,
+            //     selectGta: e.target.selectGta.value,
+            // })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            alert(data.message);
+        })
+    }
+    
     return (
         <section className="vg-gta section section-padding">
             <div className="container">
@@ -26,7 +80,7 @@ const FormMain = () => {
                         </div>
                         <div className="col-xl-5">
                             <div className="vg-gta--form">
-                                <form action="" className="vg-form" method="post">
+                                <form action="#" className="vg-form" method="post" onSubmit={onSubmit}>
                                     <div className="row row-gap-small">
                                         <div className="col-12">
                                             <input
@@ -34,7 +88,11 @@ const FormMain = () => {
                                                 className="vg-form-control w-100"
                                                 placeholder="Ваше имя *"
                                                 name="user_name"
-                                                required=""
+                                                required
+                                                value={formData.userName}
+                                                onChange={getChangeInput('userName')}
+                                                // value={userName}
+                                                // onChange={(e) => setUserName(e.target.value)}
                                             />
                                         </div>
                                         <div className="col-12">
@@ -43,12 +101,15 @@ const FormMain = () => {
                                                 className="vg-form-control w-100"
                                                 placeholder="Телефон *"
                                                 name="user_phone"
-                                                data-mask="phone"
-                                                required=""
+                                                required
+                                                value={formData.userPhone}
+                                                onChange={getChangeInput('userPhone')}
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <select name="selectGta" data-select id="select1">
+                                            <select name="selectGta" data-select id="select1"
+                                                value={formData.selectGta}
+                                                onChange={getChangeInput('selectGta')}>
                                                 <option value="English language">English language</option>
                                                 <option value="One">One</option>
                                                 <option value="two" disabled>two</option>
@@ -56,7 +117,11 @@ const FormMain = () => {
                                             </select>
                                         </div>
                                         <div className="text-center">
-                                            <button type="submit" className="btn w-100 mt-4 btn-dark">
+                                            <button type="submit" className="btn w-100 mt-4 btn-dark"
+                                            // onClick={(event) => {
+                                            //     event.preventDefault();
+                                            // }}
+                                            >
                                                 <span>Отправить</span>
                                             </button>
                                         </div>

@@ -1,4 +1,11 @@
+import { useEffect } from "react";
+
 const AppsMain = () => {
+    useEffect(() => {
+        if(Vegas.init) {
+            Vegas.init();
+        }
+    }, [])
     return (
         <section className="vg-apps section section-padding">
             <div className="container position-relative">

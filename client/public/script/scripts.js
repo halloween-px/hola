@@ -173,8 +173,8 @@ window.Vegas = {
 
 	stickyHeader: function () {
 		let sticky = this.getEl('.header .header-wrapper');
-		let checkPoint = sticky.getAttribute('data-scroll');
-
+		let checkPoint = sticky ? sticky.getAttribute('data-scroll') : '';
+ 
 		window.addEventListener('scroll', () => {
 			let position = window.pageYOffset;
 			if (position > checkPoint) {

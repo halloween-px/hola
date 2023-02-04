@@ -1,4 +1,3 @@
-const { query } = require('express');
 const Articles = require('../models/Articles');
 
 const list = async (req, res, next) => {

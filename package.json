@@ -6,7 +6,8 @@
   "scripts": {
     "client": "npm run dev --prefix ./client",
     "server": "npm run dev --prefix ./server",
-    "admin": "npm run dev --prefix ./admin"
+    "admin": "npm run dev --prefix ./admin",
+    "editing": "node ./server/scripts/seed.js"
   },
   "author": "",
   "license": "ISC"

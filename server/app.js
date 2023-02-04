@@ -8,6 +8,8 @@ const ServiceController = require('./controller/Service');
 const TeamsController = require('./controller/Teams');
 const ArticlesController = require('./controller/Articles');
 const CategoryController = require('./controller/Categories');
+const RequestController = require('./controller/Request');
+const ParamsInfoContoller = require('./controller/ParamsInfo');
 
 app.use(express.static("public"));
 app.use(cors())
@@ -31,6 +33,20 @@ app.get('/articles/:id', ArticlesController.getById);
 
 //categories
 app.get('/categories', CategoryController.list);
+
+//form
+app.post('/requests', RequestController.create)
+app.get('/requests', RequestController.list)
+
+// app.post('/form', (req, res, next) => {
+// 	try {
+// 		res.json({name: req.body.userName})
+// 	} catch (error) {
+// 		next(error)
+// 	}
+// })
+
+app.get('/params-info', ParamsInfoContoller.list)
 
 app.use('*', (req, res) => {
 	res.status(404).json({

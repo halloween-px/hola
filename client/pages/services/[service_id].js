@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useRouter } from 'next/router';
-import { useMainContext } from "../../components/context/MainContext";
 import Breadcrumbs from "../../components/layouts/Breadcrumbs";
 import MainLayouts from "../../components/layouts/MainLayouts";
 import Widgets from "../../components/widgets/Widgets";

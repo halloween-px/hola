@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 const Header = () => {
     const nav = [
@@ -27,6 +28,10 @@ const Header = () => {
             link: '/contacts'
         },
     ]
+
+    useEffect(() => {
+        Vegas.stickyHeader()
+    }, [])
     return (
         <div className="header">
             <div className="header-wrapper">
